@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.admin.practice.admin.model.AdminDao">
+
+	
+	<select id = "selectDailySales" resultType="DailysalesVo">
+		 SELECT S_DATE, SUM(S_QTY*P_PRICE) AS SUM
+		 FROM DAILYSALES
+		 GROUP BY S_DATE
+		 ORDER BY S_DATE
+	</select>
+	<select id = "selectWeeklySales" resultType="WeeklysalesVo">
+		SELECT TO_CHAR(S_DATE, 'W')AS WEEK , SUM(S_QTY*P_PRICE) AS SUM
+		 FROM  WEEKLYSALES
+		 GROUP BY TO_CHAR(S_DATE, 'W')
+		 ORDER BY TO_CHAR(S_DATE, 'W')
+	</select>
+	<select id = "selectMonthlySales" resultType="MonthlysalesVo">
+		SELECT TO_CHAR(S_DATE, 'YYYYMM')AS MONTH , SUM(S_QTY*P_PRICE) AS SUM
+		 FROM   MONTHLYSALES
+		 GROUP BY TO_CHAR(S_DATE, 'YYYYMM')
+		 ORDER BY TO_CHAR(S_DATE, 'YYYYMM')
+	</select>
+	
+	<select id = "selectAnnualSales" resultType="AnnualsalesVo">
+		SELECT TO_CHAR(S_DATE, 'YYYY')AS YEAR , SUM(S_QTY*P_PRICE) AS SUM
+		 FROM   ANNUALSALES
+		 GROUP BY TO_CHAR(S_DATE, 'YYYY')
+		 ORDER BY TO_CHAR(S_DATE, 'YYYY')
+	</select>
+	
+</mapper>

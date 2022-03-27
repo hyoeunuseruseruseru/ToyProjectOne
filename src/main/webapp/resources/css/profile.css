@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+
+body{
+	--font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+form#frm1 {
+    background-color: aliceblue;
+}
+
+div#design2 {
+    float: left;
+}
+
+input#no {
+	 background-color: aliceblue;
+    border: none;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+input#name {
+	 background-color: aliceblue;
+    border: none;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+input#regdate {
+	 background-color: aliceblue;
+    border: none;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+input#salary {
+    /* border: none; */
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    padding-left: 10px;
+    width: 107px;
+}
+
+select.design1 {
+    padding: 2px;
+    /* border: none; */
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+form#frm1 {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border: 1px solid gray;
+    padding-top: 10px;
+}
+
+
+.register{
+	text-align : center; 
+}
+
+form#frm1 {
+    background-color: aliceblue;
+}
+
+button#register {
+    margin-top: 1px;
+    border-radius: 7px;
+    border: none;
+    padding: 9px;
+}

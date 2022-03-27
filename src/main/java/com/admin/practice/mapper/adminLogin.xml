@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.admin.practice.login.model.LoginDao">
+
+	
+	
+	<select id="chkEmail" parameterType="string" resultType="integer">
+		select count(*) from adminMember
+		where email = #{email}
+	</select>
+	<select id="selectNo" parameterType="string" resultType="integer">
+		select no from adminMember
+		where email = #{email}
+	</select>
+	<select id="countPwd" parameterType="integer" resultType="integer">
+		select count(*) from hash 
+		where no = #{no}
+	</select>
+	<select id="selectHash" parameterType="integer" resultType="hashVo">
+		select * from hash
+		where no = #{no}
+	</select>
+	<select id="selectMember" parameterType="string" resultType="memberVo">
+		select * from adminMember 
+		where email = #{email}
+	</select>
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.admin.practice.member.model.MemberDao">
+	<sql id="searchWhere">
+		<if test="searchKeyword!=null and searchKeyword!=''">
+	       	where ${searchCondition} like '%' || #{searchKeyword} || '%'
+		</if>		
+	</sql>
+	
+	<select id="selectAllMember2" resultType="memberVo">
+		select * from adminMember
+		order by no desc
+	</select>
+	
+	
+	<select id="selectAllMember" parameterType="searchVo" resultType="memberVo">
+		select *
+		from
+		(
+		    select rownum as RNUM, A.*
+		    from
+		    (
+		        select * from adminMember
+		        <include refid="searchWhere"></include>
+		        order by no desc
+		    )A
+		)
+		<![CDATA[
+		where RNUM>#{firstRecordIndex} 
+			and RNUM<=#{firstRecordIndex}+ #{recordCountPerPage}]]>
+	</select>
+	
+	<select id="selectTotalRecord" parameterType="searchVo" resultType="int">
+		select count(*) from adminMember
+		<include refid="searchWhere"></include>	
+	</select>
+	
+	<insert id="InsertAdminMember" parameterType="memberVo">
+	insert into adminMember(no, name, group_no, email, address,zipcode, address_detail, address_extra, tel)
+	values(seq_adminMember.nextval,#{name},#{groupNo},#{email},#{address},#{zipcode},#{addressDetail},#{addressDetail},#{tel})
+	</insert>
+	
+	<select id = "checkEmail" parameterType="string" resultType="integer">
+		select count(*) from adminMember
+		where email = #{email}
+	</select>
+	
+	<insert id="InsertHash" parameterType="hashVo">
+	insert into hash(no, salt, digest)
+	values(#{no}, #{salt}, #{digest})
+	</insert>
+	
+	<select id = "selectAdminMemberNo" parameterType="string" resultType="integer">
+		select no from adminMember
+		where email = #{email}
+	</select>
+	<select id = "selectMember" parameterType="integer" resultType="memberVo">
+		select * from adminMember
+		where no = #{no}
+	</select>
+	<update id="updateMember" parameterType="memberVo">
+		update adminMember
+		set name = #{name}, group_no = #{groupNo}, email =#{email},
+			address= #{address} ,address_detail =#{addressDetail},
+			zipcode= #{zipcode}, tel =#{tel}, address_extra=#{addressExtra}
+		where no = #{no}
+	</update>
+	<update id="updateSalary" parameterType="memberVo">
+		update adminMember
+		set group_no = #{groupNo}, salary =#{salary},
+			position = #{position}
+		where no = #{no}
+	</update>
+</mapper>

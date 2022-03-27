@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+form.user {
+    margin: 39px;
+    border: 1px solid gray;
+    padding: 27px;
+}
+
+
+.inputp {
+    font-size: .8rem;
+    /* border-radius: 10rem; */
+    /* padding: 1.5rem 1rem; */
+}
+
+
+.inputp {
+    margin: 0.3rem;
+    padding: 0.5rem;
+    font-size: .8rem;
+    /* border-radius: 10rem; */
+    /* padding: 1.5rem 1rem; */
+    width: 54%;
+}
+
+form.user {
+    text-align: center;
+    margin: 39px;
+    border: 1px solid gray;
+    padding: 27px;
+}
+
+
+select {
+	-webkit-appearance: none; /* 크롬 화살표 없애기 */
+	-moz-appearance: none; /* 파이어폭스 화살표 없애기 */
+	appearance: none /* 화살표 없애기 */
+}
+
+select option[value=""][disabled] {
+	display: none;
+}
+
+/*option 선택이 안됐을 시에 글자색을 빨간색으로*/
+select:invalid {
+	color: #a00;
+}
+
+.inputp {
+    margin: 0.3rem;
+    padding: 0.5rem;
+    font-size: .8rem;
+    /* border-radius: 10rem; */
+    /* padding: 1.5rem 1rem; */
+    width: 43%;
+    padding: top;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    padding-left: 1.5rem;
+    /* border-radius: 1rem; */
+    border: 1px solid gray;
+}
+
+input#addressExtra {
+    font-size: small;
+    border: none;
+    text-align: center;
+}
+
+select.position {
+    margin: 0.3rem;
+    padding: 0.5rem;
+    font-size: .8rem;
+    /* border-radius: 10rem; */
+    /* padding: 1.5rem 1rem; */
+    width: 43%;
+    padding: top;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    padding-left: 1.5rem;
+    /* border-radius: 1rem; */
+    border: 1px solid gray;
+}
+
+p#emailContent {
+	    font-size: small;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+p#pwdContent {
+	    font-size: small;
+    /* margin-right: 253px; */
+    margin-top: 1px;
+    margin-bottom: 1px;
+  
+};
+
+p#telContent {
+    font-size: small;
+    margin-top: 1px;
+    margin-bottom: 3px;
+}
+
+input#register {
+    width: 46%;
+    text-align: center;
+    display: inline;
+}
+
+form.user {
+    text-align: center;
+    margin: -1px;
+    /* border: none; */
+    /* border: 1px solid gray; */
+    padding: 32px;
+}
